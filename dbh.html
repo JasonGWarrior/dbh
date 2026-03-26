@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Detroit: Become Human</title>
+
+<style>
+
+:root{
+  --cyber-blue:#3fd0ff;
+}
+
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#0b0f1a;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* particle canvas */
+#particles{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
+}
+
+/* top bar */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  display:flex;
+  align-items:center;
+  padding:16px 8%;
+  background:rgba(5,8,18,0.75);
+  backdrop-filter:blur(6px);
+  z-index:1000;
+}
+
+nav h3{
+  margin:0;
+  color:var(--cyber-blue);
+  letter-spacing:1px;
+}
+
+/* header */
+header{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:linear-gradient(180deg,#0b0f1a,#111b30);
+  position:relative;
+}
+
+header h1{
+  font-size:64px;
+  letter-spacing:3px;
+  margin-bottom:10px;
+}
+
+header p{
+  color:#cbd3e1;
+}
+
+/* scanning line */
+.scanline{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:3px;
+  background:var(--cyber-blue);
+  box-shadow:0 0 15px var(--cyber-blue);
+  animation:scan 6s linear infinite;
+}
+
+@keyframes scan{
+  0%{top:0}
+  100%{top:100%}
+}
+
+/* sections */
+.section{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:40px;
+  padding:100px 10%;
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 0.8s ease;
+}
+
+.section.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.section:nth-child(even){
+  flex-direction:row-reverse;
+  background:#10192c;
+}
+
+.section img{
+  width:420px;
+  border-radius:12px;
+  box-shadow:0 0 25px rgba(63,208,255,0.25);
+  transition:transform .4s ease, box-shadow .4s ease;
+}
+
+.section img:hover{
+  transform:scale(1.03);
+  box-shadow:0 0 35px rgba(63,208,255,0.6);
+}
+
+.text{
+  max-width:450px;
+}
+
+.text h2{
+  font-size:32px;
+  margin-bottom:10px;
+  color:var(--cyber-blue);
+}
+
+.text p{
+  line-height:1.6;
+  color:#cbd3e1;
+}
+
+footer{
+  text-align:center;
+  padding:40px;
+  background:#050812;
+  color:#6c7a96;
+}
+
+</style>
+</head>
+
+<body>
+
+<canvas id="particles"></canvas>
+
+<nav>
+  <h3>CyberLife</h3>
+</nav>
+
+<header>
+  <div class="scanline"></div>
+  <div>
+    <h1>Detroit: Become Human</h1>
+    <p>The future of humanity and androids</p>
+  </div>
+</header>
+
+<section class="section">
+  <img src="https://images.unsplash.com/photo-1535378917042-10a22c95931a" alt="android">
+  <div class="text">
+    <h2>Wildlife Androids</h2>
+    <p>In 2038, androids serve humanity in nearly every role. They cook, clean, and assist humans in daily life. But not all androids are human-like. Some are designed to simulate other living creatures we once knew and loved.</p>
+  </div>
+</section>
+
+<section class="section">
+  <img src="https://images.unsplash.com/photo-1526378722484-bd91ca387e72" alt="technology">
+  <div class="text">
+    <h2>Android Zoos</h2>
+    <p>Thanks to CyberLife's advanced technology, you and your family can experience once-extinct animals in android form. Zoos around the world, opened by CyberLife, allow visitors to see not only animals we learned about in school, but also creatures dating back to prehistoric times.</p>
+    <p>But how does it all work?</p>
+  </div>
+</section>
+
+<section class="section">
+  <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780" alt="city">
+  <div class="text">
+    <h2>The Intelligence Behind Them</h2>
+    <p>The androids we know and rely on are trained using hundreds of petabytes of data from around the world: news articles, books, human conversations, videos, and many other sources.</p>
+
+    <p>Android animals, however, are different. They were trained using an estimated 40 terabytes of video data containing real wildlife behavior—mothers feeding their cubs, animals playing, and how groups interact in nature.</p>
+
+    <p>These androids are classified as "Filtered Animal Androids" (FAA). Their training data removes hunting scenes or violent attacks to prevent aggressive behavior and ensure the safety of visitors.</p>
+  </div>
+</section>
+
+<section class="section">
+  <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" alt="wildlife">
+  <div class="text">
+    <h2>CyberLife "Personal Zoo"</h2>
+
+    <p>You've heard the rumors—and yes, they are true. CyberLife owns a gated portion of the Amazon Rainforest used for advanced android research. Within this environment, CyberLife scientists observe a different class of android wildlife.</p>
+
+    <p>These are called "Unfiltered Animal Androids." Unlike the zoo models, their training data includes the full spectrum of natural behavior: hunting, survival conflicts, injury, and death.</p>
+
+    <p>These experimental models also use a system known as <strong>digital olfaction</strong>. Instead of relying only on cameras and audio sensors, the android animals are equipped with chemical detection sensors that simulate a sense of smell. This allows them to track scents in the environment, locate other animals, identify food sources, and follow scent trails—just as real wildlife would.</p>
+
+    <p>Because of this expanded dataset and sensory system, the android animals behave far more realistically—and far more dangerously. They are never shown to the public and remain strictly within CyberLife research zones.</p>
+
+    <p>The results of these experiments were both surprising and expected: the android animals behaved almost exactly like real wildlife.</p>
+
+    <p>I'm Jone Smith, and this documentary segment was provided by CyberLife.</p>
+  </div>
+</section>
+
+<footer>
+  Detroit Become Human fan concept site
+</footer>
+
+<script>
+
+/* scroll fade */
+const sections = document.querySelectorAll(".section");
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+});
+
+sections.forEach(section => observer.observe(section));
+
+/* particle background */
+
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for(let i=0;i<120;i++){
+  particles.push({
+    x:Math.random()*canvas.width,
+    y:Math.random()*canvas.height,
+    size:Math.random()*2,
+    speedX:(Math.random()-.5)*0.4,
+    speedY:(Math.random()-.5)*0.4
+  });
+}
+
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  ctx.fillStyle="#3fd0ff";
+
+  particles.forEach(p=>{
+
+    p.x+=p.speedX;
+    p.y+=p.speedY;
+
+    if(p.x<0||p.x>canvas.width) p.speedX*=-1;
+    if(p.y<0||p.y>canvas.height) p.speedY*=-1;
+
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+    ctx.fill();
+
+  });
+
+  requestAnimationFrame(animate);
+}
+
+animate();
+
+</script>
+
+</body>
+</html>
